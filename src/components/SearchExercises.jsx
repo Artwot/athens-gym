@@ -3,6 +3,7 @@ import { Stack, Box, TextField, Button, Typography } from '@mui/material';
 import { ThemeProvider } from '@mui/private-theming';
 
 import { createTheme } from '@mui/material/styles';
+import { width } from '@mui/system';
 
 const theme = createTheme({
   status: {
@@ -43,13 +44,16 @@ const SearchExercises = () => {
       {/* Search Input */}
       <Box
         position='relative'
+        maxHeight='76px'
         sx={{
           width: { xs: '75%', md: '80%' },
+          borderRadius: '1rem',
+          overflow: 'hidden',
         }}
         className='TextField-without-border-radius'
       >
         <TextField
-          label='Buscar ejercicios'
+          placeholder='Buscar ejercicios'
           type='text'
           className='text-field'
           value=''
@@ -57,8 +61,23 @@ const SearchExercises = () => {
           onChange={(e) => {
             console.log(e.target.value);
           }}
+          sx={{ width: '75%' }}
         />
-        <Button position='absolute'>Buscar</Button>
+        <Button
+          position='absolute'
+          sx={{
+            backgroundColor: '#111111',
+            color: 'white',
+            borderRadius: '0',
+            height: '56px',
+            width: '25%',
+            ':hover': {
+              bgcolor: '#757575',
+            },
+          }}
+        >
+          Buscar
+        </Button>
       </Box>
     </Stack>
   );

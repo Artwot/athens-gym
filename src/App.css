@@ -147,7 +147,7 @@ body {
 }
 
 .TextField-without-border-radius fieldset {
-  border-radius: 1.5rem;
+  border-radius: 1.5rem 0 0 1.5rem;
   color: #ff2625;
 }
 
