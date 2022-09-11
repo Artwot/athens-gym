@@ -146,6 +146,11 @@ body {
   text-decoration: none;
 }
 
+.TextField-without-border-radius fieldset {
+  border-radius: 1.5rem;
+  color: #ff2625;
+}
+
 @media screen and (min-width: 900px) {
   .nav-links {
     color: #3a1212;
