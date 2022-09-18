@@ -1,33 +1,21 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import { Stack, Box, TextField, Button, Typography } from '@mui/material';
-import { ThemeProvider } from '@mui/private-theming';
-
 import { createTheme } from '@mui/material/styles';
-import { width } from '@mui/system';
-
-const theme = createTheme({
-  status: {
-    danger: '#e53e3e',
-  },
-  palette: {
-    primary: {
-      main: '#000',
-      darker: '#000',
-    },
-    neutral: {
-      main: '#64748B',
-      contrastText: '#fff',
-    },
-  },
-});
 
 const SearchExercises = () => {
+  const [searchedExercise, setSearchedExercise] = useState('');
+
+  const handleSearch = () => {
+    console.log('Se hizo click');
+  };
+
   return (
     <Stack
       justifyContent='center'
       alignItems={'center'}
       sx={{
-        padding: { xs: '4rem 2rem', md: '6rem 4rem ' },
+        padding: { xs: '4rem 2rem', md: '8rem 4rem ' },
       }}
     >
       <Typography
@@ -56,15 +44,14 @@ const SearchExercises = () => {
           placeholder='Buscar ejercicios'
           type='text'
           className='text-field'
-          value=''
+          value={searchedExercise}
           variant='outlined'
-          onChange={(e) => {
-            console.log(e.target.value);
-          }}
-          sx={{ width: '75%' }}
+          onChange={(e) => setSearchedExercise(e.target.value)}
+          sx={{ width: '75%', outline: 'none' }}
         />
         <Button
           position='absolute'
+          onClick={handleSearch}
           sx={{
             backgroundColor: '#111111',
             color: 'white',
